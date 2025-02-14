@@ -70,7 +70,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
-                            'Profile',
+                            'My Profile',
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
                                 .headlineLarge
