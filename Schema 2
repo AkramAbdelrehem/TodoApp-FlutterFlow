@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "users": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]{20,}": {
+          "type": "object",
+          "properties": {
+            "uid": { "type": "string" },
+            "display_name": { "type": "string" },
+            "email": { "type": "string", "format": "email" },
+            "birthday": { "type": "string", "format": "date-time" },
+            "created_time": { "type": "string", "format": "date-time" }
+          },
+          "required": ["uid", "display_name", "email", "birthday", "created_time"]
+        }
+      }
+    },
+    "tasks": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]{20,}": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "details": { "type": "string" },
+            "completed": { "type": "boolean" },
+            "created": { "type": "string", "format": "date-time" },
+            "user": { "type": "string", "pattern": "^/users/[a-zA-Z0-9_-]{20,}$" }
+          },
+          "required": ["title", "completed", "created", "user"]
+        }
+      }
+    }
+  }
+}
